@@ -1,5 +1,4 @@
-service:
-  name: AuctionService
+service: AuctionService
 
 plugins:
   - serverless-bundle
@@ -7,9 +6,10 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   memorySize: 256
   stage: ${opt:stage, 'dev'}
+  region: eu-west-1
   
 functions:
   hello:
@@ -18,3 +18,8 @@ functions:
       - http:
           method: GET
           path: /hello
+
+# disable linting
+custom:
+  bundle:
+    linting: false
