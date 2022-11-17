@@ -12,12 +12,12 @@ provider:
   region: eu-west-1
   
 functions:
-  hello:
-    handler: src/handlers/hello.handler
+  CreateAuction:
+    handler: src/handlers/CreateAuction.handler
     events:
       - http:
-          method: GET
-          path: /hello
+          method: POST
+          path: /auction
 
 # disable linting
 custom:
